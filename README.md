@@ -4,29 +4,29 @@ Using provided codeunit allow you to "compil" a Business Central extension with 
 
 ## Usage
 
-var
-AppPackaging: codeunit "TOO Al App Packaging";
-
-// Create App
-AppPackaging.Initialize(CreateGuid(), 'ALProject1', 'Default Publisher', '1.0.0.0');
-AppPackaging.SetExposurePolicy(true, true, true, true);
-AppPackaging.AddDependency('96f3ba5e-7658-441e-8519-43f3eeee787c', 'MyOtherApp', 'Default Publisher', '1.0.0.0');
-AppPackaging.AddALSourceFile(ALFileName, ALFileContent);
-
-// Store App file
-TempBlob.CreateOutStream(OutStream);
-AppPackaging.PackageApp(OutStream);
-// OutStream contains the packaged .app file
+    var
+    AppPackaging: codeunit "TOO Al App Packaging";
+    
+    // Create App
+    AppPackaging.Initialize(CreateGuid(), 'ALProject1', 'Default Publisher', '1.0.0.0');
+    AppPackaging.SetExposurePolicy(true, true, true, true);
+    AppPackaging.AddDependency('96f3ba5e-7658-441e-8519-43f3eeee787c', 'MyOtherApp', 'Default Publisher', '1.0.0.0');
+    AppPackaging.AddALSourceFile(ALFileName, ALFileContent);
+    
+    // Store App file
+    TempBlob.CreateOutStream(OutStream);
+    AppPackaging.PackageApp(OutStream);
+    // OutStream contains the packaged .app file
 
 ## Function Definition
 
-Initialize(AppID: Guid; AppName: Text; AppPublisher: Text; AppVersion: Text)
-AddDependency(AppID: Guid; AppName: Text; AppPublisher: Text; AppVersion: Text)
-AddPreprocessorSymbol(Symbol: Text)
-SetObjectIDRange(MinObjectID: Integer; MaxObjectID: Integer)
-SetExposurePolicy(AllowDebugging: Boolean; AllowDownloadingSource: Boolean; IncludeSourceInSymbolFile: Boolean; ApplyToDevExtension: Boolean)
-AddALSourceFile(ALSourceFileName: Text; ALSourceFileContent: Text)
-PackageApp(var  AppPackageOutStream: OutStream)
+    Initialize(AppID: Guid; AppName: Text; AppPublisher: Text; AppVersion: Text)
+    AddDependency(AppID: Guid; AppName: Text; AppPublisher: Text; AppVersion: Text)
+    AddPreprocessorSymbol(Symbol: Text)
+    SetObjectIDRange(MinObjectID: Integer; MaxObjectID: Integer)
+    SetExposurePolicy(AllowDebugging: Boolean; AllowDownloadingSource: Boolean; IncludeSourceInSymbolFile: Boolean; ApplyToDevExtension: Boolean)
+    AddALSourceFile(ALSourceFileName: Text; ALSourceFileContent: Text)
+    PackageApp(var  AppPackageOutStream: OutStream)
 
 ## How it work
 
@@ -55,12 +55,12 @@ Method : UploadExtension(InStream; languageID)
 
 Therefore you can package source code and publish and install it directly like this :
 
-// Store App file  
-TempBlob.CreateOutStream(OutStream);  
-AppPackaging.PackageApp(OutStream);
-TempBlob.CreateInStream(InStream);  
-// Deploy App 
-ExtensionMgt.UploadExtension(InStream; languageID); // LCID i.e. 1033 for en-US
-ExtensionMgt.DeployExtension(AppId: Guid; lcid: Integer; IsUIEnabled: Boolean)
+    // Store App file  
+    TempBlob.CreateOutStream(OutStream);  
+    AppPackaging.PackageApp(OutStream);
+    TempBlob.CreateInStream(InStream);  
+    // Deploy App 
+    ExtensionMgt.UploadExtension(InStream; languageID); // LCID i.e. 1033 for en-US
+    ExtensionMgt.DeployExtension(AppId: Guid; lcid: Integer; IsUIEnabled: Boolean)
 
 
