@@ -1,6 +1,7 @@
 # Package AL source to .App in AL
 
-Using provided codeunit allow you to "compil" a Business Central extension with given source to an App file that can be published and installed.
+Provided codeunit allow you to "compile" a Business Central extension App file, within given AL source code. 
+The app can be published and installed in Business Central (also in AL if you are on SaaS).
 
 ## Usage
 
