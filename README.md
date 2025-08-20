@@ -41,11 +41,11 @@ The header is composed of a **NAVX** keyword, followed by the **header length**,
 ### Zip file
 
 Minimum required files for the .app to be recognized by Business Central :
-Source AL file (at least one)
-SymbolReferences.Json -> contain list of object reference and the al file location inside the zip
-NavxManifest.xml -> General app information such as name, publisher, version (transcode of app.json to xml)
-MediaIdListing.xml -> External media such as the app logo information and location inside the zip
-[Content_Types].xml -> file types informations
+- Source AL file (at least one)
+- SymbolReferences.Json -> contain list of object reference and the al file location inside the zip
+- NavxManifest.xml -> General app information such as name, publisher, version (transcode of app.json to xml)
+- MediaIdListing.xml -> External media such as the app logo information and location inside the zip
+- [Content_Types].xml -> file types informations
 
 ## Publish App from AL
 
