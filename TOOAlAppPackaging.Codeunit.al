@@ -1,8 +1,7 @@
 codeunit 51005 "TOO Al App Packaging"
 {
     /*
-        This codeunit is used to create a package .app file for Business Central given AL source files
-        Minimum file to package is: one AL file
+        This codeunit offer packaging of .app file given AL source code
 
         Usage :
 
@@ -566,4 +565,5 @@ codeunit 51005 "TOO Al App Packaging"
         IncludeSourceInSymbolFile: Boolean;
         ApplyToDevExtension: Boolean;
         TempBlob: Codeunit "Temp Blob";
+
 }
