@@ -1,10 +1,13 @@
+
 # Package AL source to .App in AL
 
 Provided codeunit allow you to "compile" a Business Central extension App file, within given AL source code. 
 The app can then be published and installed in Business Central (also in AL if you are on SaaS).
 
-Note that the code does not "compile" in a sense that is does NOT veirfy the source code and does not validate any information you provide.
-If you want like to do a proper compilation of AL source outside of visual Studio Code, you can use alc.exe command line.
+Note that this code does not "compile" in a sense that it does NOT verify the source code or validate any information you provide. 
+Missing dependency or malformed AL code are not detected and will create an .app file that fail publication.
+If you want like to do a proper compilation of AL source with symbol and code verification outside of visual Studio Code, you can use alc.exe command line.
+[Check out alc.exe commands](https://dankinsella.blog/business-central-al-compiler/)
 
 ## Usage
 
