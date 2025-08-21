@@ -42,8 +42,8 @@ If you want a proper compilation of AL source with symbol and code verification 
 ### .App file format
 
 App file format are basically ZIP file with additionnal header.
-The Zip contain source code and meta informations such as as the project name, symboles, and file locaiton within the Zip.
-The AL source are compiled by Business Central instance when the App is published.
+The Zip contain source code and meta informations such as as the project name, symboles, and file location inside the Zip.
+The AL source are compiled to DotNet by Business Central instance when the App file is published.
 The header is composed of a **NAVX** keyword, followed by the **header length**, extension type (V**2** for AL), **package GUID**, the **zip length** and end with another **NAVX** keyword.
 
 ### Zip file
