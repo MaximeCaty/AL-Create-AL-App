@@ -1,20 +1,23 @@
 # Package AL source to .App in AL
 
 Provided codeunit allow you to "compile" a Business Central extension App file, within given AL source code. 
-The app can be published and installed in Business Central (also in AL if you are on SaaS).
+The app can then be published and installed in Business Central (also in AL if you are on SaaS).
+
+Note that the code does not "compile" in a sense that is does NOT veirfy the source code and does not validate any information you provide.
+If you want like to do a proper compilation of AL source outside of visual Studio Code, you can use alc.exe command line.
 
 ## Usage
 
     var
     AppPackaging: codeunit "TOO Al App Packaging";
     
-    // Create App
+    // Define App source and infos
     AppPackaging.Initialize(CreateGuid(), 'ALProject1', 'Default Publisher', '1.0.0.0');
     AppPackaging.SetExposurePolicy(true, true, true, true);
     AppPackaging.AddDependency('96f3ba5e-7658-441e-8519-43f3eeee787c', 'MyOtherApp', 'Default Publisher', '1.0.0.0');
     AppPackaging.AddALSourceFile(ALFileName, ALFileContent);
     
-    // Store App file
+    // "Compile" and write the App into an OutStream
     TempBlob.CreateOutStream(OutStream);
     AppPackaging.PackageApp(OutStream);
     // OutStream contains the packaged .app file
@@ -36,7 +39,8 @@ The app can be published and installed in Business Central (also in AL if you ar
 ### .App file format
 
 App file format are basically ZIP file with additionnal header.
-The Zip contain metainformation such as as the project name, symboles, and AL source that are compiled in DotNet by Business Central Instance.
+The Zip contain source code and meta informations such as as the project name, symboles, and file locaiton within the Zip.
+The AL source are compiled by Business Central instance when the App is published.
 The header is composed of a **NAVX** keyword, followed by the **header length**, extension type (V**2** for AL), **package GUID**, the **zip length** and end with another **NAVX** keyword.
 
 ### Zip file
