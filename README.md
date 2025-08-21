@@ -6,7 +6,7 @@ The app can then be published and installed in Business Central (also in AL if y
 
 Note that this code does not "compile" in a sense that it does NOT verify the source code or validate any information you provide. 
 Missing dependency or malformed AL code are not detected and will create an .app file that fail publication.
-If you want like to do a proper compilation of AL source with symbol and code verification outside of visual Studio Code, you can use alc.exe command line.
+If you want a proper compilation of AL source with symbol and code verification outside of visual Studio Code, you may use alc.exe command line.
 [Check out alc.exe commands](https://dankinsella.blog/business-central-al-compiler/)
 
 ## Usage
